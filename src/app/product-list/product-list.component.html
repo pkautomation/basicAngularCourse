@@ -31,6 +31,7 @@
             <th>Product</th>
             <th>Code</th>
             <th>Price</th>
+            <th>Rating</th>
           </tr>
         </thead>
         <tbody>
@@ -45,6 +46,7 @@
             <td>{{product.code | uppercase | convertToSpaces: '-' | convertToSpaces: '-' }}</td>
             <td>{{product.currency === 'USD' ? (product.price | currency:'USD' : 'symbol' : '1.2-2'):
                (product.price) }}</td>
+            <td><pm-star [rating]='product.rating' (ratingClicked)='onRatingClicked($event)'></pm-star></td>
           </tr>
         </tbody>
       </table>
