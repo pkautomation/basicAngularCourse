@@ -6,4 +6,5 @@ export interface IProduct {
   imageUrl?: string;
   price?: number;
   currency?: string;
+  rating?: number;
 }

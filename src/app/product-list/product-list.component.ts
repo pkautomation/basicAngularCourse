@@ -29,11 +29,11 @@ export class ProductListComponent implements OnInit {
   constructor() {
     this.products = [
       {id: 1, name: 'first product', code: 'abc-abc',
-      imageUrl: 'https://openclipart.org/download/316951/1552832286.svg', price: 15.99, currency: 'USD'},
+      imageUrl: 'https://openclipart.org/download/316951/1552832286.svg', price: 15.99, currency: 'USD', rating: 4.5},
       {id: 2, name: 'Second product', code: 'cde-cde',
-      imageUrl: 'https://openclipart.org/download/316951/1552832287.svg', price: 18888, currency: 'USD'},
+      imageUrl: 'https://openclipart.org/download/316951/1552832287.svg', price: 18888, currency: 'USD', rating: 1.0},
       {id: 3, name: 'Third product', code: 'cde-unkown-currency',
-      imageUrl: 'https://openclipart.org/download/316951/1552832287.svg', price: 18888}
+      imageUrl: 'https://openclipart.org/download/316951/1552832287.svg', price: 18888, rating: 3}
     ];
     this.listFilter = 'product';
   }
@@ -52,4 +52,7 @@ export class ProductListComponent implements OnInit {
       product.name.toLocaleLowerCase().indexOf(filterBy) !== -1);
   }
 
+  onRatingClicked(message: string) {
+    this.pageTitle = 'product list: ' + message;
+  }
 }
