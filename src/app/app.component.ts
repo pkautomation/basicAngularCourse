@@ -1,10 +1,14 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+// tslint:disable-next-line: component-selector
+  selector: 'pm-root',
+  template: `
+  <div><h1>{{pageTitle}}</h1>
+    <pm-products></pm-products>
+  </div>
+  `
 })
 export class AppComponent {
-  title = 'angularCourse';
+  pageTitle = 'Acme Product Management';
 }
