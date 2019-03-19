@@ -1,0 +1,28 @@
+[
+  {
+    "id": 1,
+    "name": "first product",
+    "code": "abc-abc",
+    "imageUrl": "https://openclipart.org/download/316951/1552832286.svg",
+    "price": 15.99,
+    "currency": "USD",
+    "rating": 4.5
+  },
+  {
+    "id": 2,
+    "name": "Second product",
+    "code": "cde-cde",
+    "imageUrl": "https://openclipart.org/download/316951/1552832287.svg",
+    "price": 18888,
+    "currency": "USD",
+    "rating": 1.0
+  },
+  {
+  "id": 3,
+  "name": "Third product",
+  "code": "cde-unkown-currency",
+  "imageUrl": "https://openclipart.org/download/316951/1552832287.svg",
+  "price": 18888,
+  "rating": 3
+  }
+]

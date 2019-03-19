@@ -4,8 +4,12 @@ import { Component } from '@angular/core';
 // tslint:disable-next-line: component-selector
   selector: 'pm-root',
   template: `
-  <div><h1>{{pageTitle}}</h1>
-    <pm-products></pm-products>
+  <ul class='nav nabar-nav'>
+    <li><a [routerLink]="['/welcome']">Home</a></li>
+    <li><a [routerLink]="['/products']">Product List</a></li>
+  </ul>
+  <div class="container">
+    <router-outlet></router-outlet>
   </div>
   `
 })
