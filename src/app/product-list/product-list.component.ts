@@ -1,21 +1,26 @@
 import { Component, OnInit } from '@angular/core';
 import { IProduct } from '../products/product';
+import { ProductService } from '../products/product.service';
 
 @Component({
 // tslint:disable-next-line: component-selector
   selector: 'pm-products',
   templateUrl: './product-list.component.html',
-  styleUrls: ['./product-list.component.css']
+  styleUrls: ['./product-list.component.css'],
 })
 
 export class ProductListComponent implements OnInit {
+  constructor(private productService: ProductService) {}
+
+  errorMessage = 'error!!!';
+
   pageTitle = 'Product List!';
   products: IProduct[];
   showImage = false;
 
   filteredProducts: IProduct[];
 
-// tslint:disable-next-line: variable-name
+  // tslint:disable-next-line: variable-name
   _listFilter: string;
 
   get listFilter(): string {
@@ -26,20 +31,14 @@ export class ProductListComponent implements OnInit {
     this.filteredProducts = this.listFilter ? this.performFilter(this.listFilter) : this.products;
   }
 
-  constructor() {
-    this.products = [
-      {id: 1, name: 'first product', code: 'abc-abc',
-      imageUrl: 'https://openclipart.org/download/316951/1552832286.svg', price: 15.99, currency: 'USD', rating: 4.5},
-      {id: 2, name: 'Second product', code: 'cde-cde',
-      imageUrl: 'https://openclipart.org/download/316951/1552832287.svg', price: 18888, currency: 'USD', rating: 1.0},
-      {id: 3, name: 'Third product', code: 'cde-unkown-currency',
-      imageUrl: 'https://openclipart.org/download/316951/1552832287.svg', price: 18888, rating: 3}
-    ];
-    this.listFilter = 'product';
-  }
-
   ngOnInit() {
-    console.log('In init');
+     this.productService.getProducts().subscribe(
+      products => {
+        this.products = products,
+        this.filteredProducts = this.listFilter ? this.performFilter(this.listFilter) : this.products;
+      },
+      error => this.errorMessage = error
+    );
   }
 
   toggleImage() {
